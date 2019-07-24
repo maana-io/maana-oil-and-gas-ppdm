@@ -27,5 +27,5 @@ Follow t6he instructions for the appropriate version:
 ## Connecting to Azure Database for PostgreSQL
 
 ```bash
-psql --host=ppdm-postgres.postgres.database.azure.com --port=5432 --username=maana@ppdm-postgres --dbname=ppdm-postgres
+psql "sslmode=require host=ppdm-postgres.postgres.database.azure.com user=maana@ppdm-postgres dbname=postgres"
 ```
