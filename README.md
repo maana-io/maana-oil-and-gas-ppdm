@@ -10,11 +10,22 @@ Create a [PPDM](https://ppdm.org/ppdm/PPDM/Standards/PPDM_Data_Model/PPDM_3_9_Da
 ### Azure Database for PostgreSQL
 
 - [Quick Start](https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal)
+- Database name: ppdm-postgres
+- Ensure to whitelist any IP from which you are going to connect in the server firewall
 
-### Install PostgreSQL Locally
+### Install PostgreSQL (local)
 
-During development, it is useful to have both a local copy of the database, but you'll also need the tools (e.g., psql) to work with Azure.
+During development, it is useful to have a local copy of the database
+
+If using Azure, then you'll also need the tools (e.g., psql) to work with cloud database.
 
 #### Ubuntu
 
+Follow t6he instructions for the appropriate version:
 - [Ubuntu 19.04](https://www.osradar.com/how-to-install-postgresql-on-ubuntu-19-04/)
+
+## Connecting to Azure Database for PostgreSQL
+
+```bash
+psql --host=ppdm-postgres.postgres.database.azure.com --port=5432 --username=maana@ppdm-postgres --dbname=ppdm-postgres
+```
