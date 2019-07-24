@@ -29,3 +29,27 @@ Follow t6he instructions for the appropriate version:
 ```bash
 psql "sslmode=require host=ppdm-postgres.postgres.database.azure.com user=maana@ppdm-postgres dbname=postgres"
 ```
+
+## Loading PostgreSQL with PPDM Data
+
+Once logged into the PostgreSQL database, use the following commands to prepare to load the PPDM data:
+
+```sql
+CREATE ROLE ppdm_user WITH PASSWORD 'ppdm_pass';
+
+ALTER ROLE ppdm_user WITH LOGIN SUPERUSER CREATEROLE CREATEDB REPLICATION;
+
+SET ROLE ppdm_user;
+
+CREATE DATABASE ppdm39 WITH OWNER ppdm_user;
+
+\connect ppdm39 ppdm_user;   (...enter password, 'ppdm_pass')
+
+CREATE SCHEMA IF NOT EXISTS ppdm AUTHORIZATION ppdm_user;
+
+SET search_path to ppdm;
+
+\i PPDM39.sql
+
+\q
+```
