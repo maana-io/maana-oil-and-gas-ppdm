@@ -46,6 +46,13 @@ CREATE SCHEMA IF NOT EXISTS ppdm AUTHORIZATION maana;
 SET search_path to ppdm;
 
 \i PPDM39.sql
+```
 
-\q
+If all is well, then this last command will take awhile and should produce the following output:
+```bash
+postgres=> \i PPDM39.sql
+Creating Tables and Columns...
+Creating Primary Keys...
+Creating Check Constraints...
+Creating Foreign Keys...
 ```
