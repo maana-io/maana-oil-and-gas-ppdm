@@ -26,8 +26,17 @@ Follow t6he instructions for the appropriate version:
 
 ## Connecting to Azure Database for PostgreSQL
 
+It is convenient to use environment vars to simplify the use of command line tools, like PSQL and PostGraphile (see below).
+
 ```bash
-psql "sslmode=require host=ppdm-postgres.postgres.database.azure.com user=maana@ppdm-postgres dbname=postgres"
+# establish Postgres connection parameters
+export PGHOST=ppdm-postgres.postgres.database.azure.com
+export PGUSER=maana@ppdm-postgres
+export PGPASSWORD=<secret>
+export PGSSLMODE=require
+
+# connect to the database system
+psql postgres:///postgres
 ```
 
 ## Loading PostgreSQL with PPDM Data
@@ -63,3 +72,5 @@ Creating Table Comments...
 Creating Column Comments...
 Creating Unique constraints and Not Null constraints on PPDM_GUID...
 ```
+
+## Create the PostGraphile server
