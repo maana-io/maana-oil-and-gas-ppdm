@@ -32,20 +32,16 @@ psql "sslmode=require host=ppdm-postgres.postgres.database.azure.com user=maana@
 
 ## Loading PostgreSQL with PPDM Data
 
+Ensure you are in the PPDM data directory, `./ppdm_postgres_39/`.
+
 Once logged into the PostgreSQL database, use the following commands to prepare to load the PPDM data:
 
 ```sql
-CREATE ROLE ppdm_user WITH PASSWORD 'ppdm_pass';
+CREATE DATABASE ppdm39 WITH OWNER maana;
 
-ALTER ROLE ppdm_user WITH LOGIN SUPERUSER CREATEROLE CREATEDB REPLICATION;
+\connect ppdm39 maana;
 
-SET ROLE ppdm_user;
-
-CREATE DATABASE ppdm39 WITH OWNER ppdm_user;
-
-\connect ppdm39 ppdm_user;   (...enter password, 'ppdm_pass')
-
-CREATE SCHEMA IF NOT EXISTS ppdm AUTHORIZATION ppdm_user;
+CREATE SCHEMA IF NOT EXISTS ppdm AUTHORIZATION maana;
 
 SET search_path to ppdm;
 
