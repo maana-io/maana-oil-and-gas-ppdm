@@ -26,17 +26,8 @@ Follow t6he instructions for the appropriate version:
 
 ## Connecting to Azure Database for PostgreSQL
 
-It is convenient to use environment vars to simplify the use of command line tools, like PSQL and PostGraphile (see below).
-
 ```bash
-# establish Postgres connection parameters
-export PGHOST=ppdm-postgres.postgres.database.azure.com
-export PGUSER=maana@ppdm-postgres
-export PGPASSWORD=<secret>
-export PGSSLMODE=require
-
-# connect to the database system
-psql postgres:///postgres
+psql postgresql://maana%40ppdm-postgres:[SECRET]@ppdm-postgres.postgres.database.azure.com:5432/postgres?sslmode=prefer
 ```
 
 ## Loading PostgreSQL with PPDM Data
