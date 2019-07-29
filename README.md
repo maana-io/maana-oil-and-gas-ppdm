@@ -65,3 +65,20 @@ Creating Unique constraints and Not Null constraints on PPDM_GUID...
 ```
 
 ## Create the PostGraphile server
+
+### Install
+```bash
+npm install -g prisma2
+```
+
+### Introspect Schema
+First time:
+```bash
+prisma2 init
+```
+
+Subsequent times:
+```bash
+prisma2 introspect
+```
+
