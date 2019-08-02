@@ -64,7 +64,7 @@ Creating Column Comments...
 Creating Unique constraints and Not Null constraints on PPDM_GUID...
 ```
 
-## Create the PostGraphile server
+## Create the Prisma server
 
 ### Install
 ```bash
@@ -82,3 +82,18 @@ Subsequent times:
 prisma2 introspect
 ```
 
+### Generate the Client (Photon)
+
+First, we need to edit the schema file (`prisma/schema.prisma`) to include the generator directive:
+
+```
++ generator photonjs {
++   provider = "photonjs"
++ }
+```
+
+Next, generate the Photon client:
+
+```bash
+prisma2 generate
+```
